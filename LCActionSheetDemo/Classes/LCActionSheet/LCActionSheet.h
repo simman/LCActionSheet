@@ -22,6 +22,9 @@
 
 @end
 
+typedef void(^SCustomizationBlock)(NSUInteger buttonIndex, LCActionSheet *actionSheet);
+static SCustomizationBlock SDefauldCustomizationBlock = nil;
+
 @interface LCActionSheet : UIView
 
 /**
@@ -61,5 +64,21 @@
                      delegate:(id<LCActionSheetDelegate>)delegate;
 
 - (void)show;
+
+
+/**
+ *  @brief  返回一个ActionSheet对象, 实例方法，并使用block回调，会自动调用 show方法
+ *
+ *  @param title        提示标题
+ *  @param titles      所有按钮的标题
+ *  @param buttonIndex 红色按钮的index
+ *  @param block
+ *
+ *  @return
+ */
++ (id)showSheetWithTitle:(NSString *)title
+            buttonTitles:(NSArray *)titles
+          redButtonIndex:(NSInteger)buttonIndex
+         completionBlock:(void (^)(NSUInteger buttonIndex, SMActionSheet *actionSheet))block;
 
 @end
