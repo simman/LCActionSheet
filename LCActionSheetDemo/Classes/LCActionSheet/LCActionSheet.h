@@ -79,6 +79,6 @@ static SCustomizationBlock SDefauldCustomizationBlock = nil;
 + (id)showSheetWithTitle:(NSString *)title
             buttonTitles:(NSArray *)titles
           redButtonIndex:(NSInteger)buttonIndex
-         completionBlock:(void (^)(NSUInteger buttonIndex, SMActionSheet *actionSheet))block;
+         completionBlock:(void (^)(NSUInteger buttonIndex, LCActionSheet *actionSheet))block;
 
 @end
